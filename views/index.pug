@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Playing with pug templates on the server side#{title}
+
+  button(type="button", class="btn btn-success", onclick= "doBump()") Press Me
+  div(id = "bump") Bump the count 
+  br
+  a(class="btn btn-success", href="fuel") Click Here For Fuel Page
+  script.  
+   var count = 0;
+   var bump = 1;
+   function doBump() 
+   {
+    count = count + bump
+    bump = bump + 1
+    document.getElementById("bump").innerHTML  = "Count " + count + "with "+" Bump " + bump; 
+   }
