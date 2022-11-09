@@ -1,9 +1,17 @@
 var Fuel = require('../models/fuel'); 
  
 // List of all Fuel 
-exports.fuel_list = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Fuel list'); 
-}; 
+
+exports.fuel_list = async function(req, res) {  
+    try{ 
+        thePastries = await Pastry.find(); 
+        res.send(thePastries); 
+    } 
+    catch(err){ 
+        res.status(500); 
+        res.send(`{"error": ${err}}`); 
+    }   
+};
  
 // for a specific Fuel. 
 exports.fuel_detail = function(req, res) { 
