@@ -4,7 +4,7 @@ var Fuel = require('../models/fuel');
 
 exports.fuel_list = async function(req, res) {  
     try{ 
-        thePastries = await Fuel.find(); 
+        theFuels = await Fuel.find(); 
         res.send(theFuels); 
     } 
     catch(err){ 
