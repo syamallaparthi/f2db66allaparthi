@@ -52,7 +52,7 @@ app.use(function(err, req, res, next) {
 
 async function recreateDB() {
   // Delete everything 
-  await pastry.deleteMany();
+  await fuel.deleteMany();
 
   let instance1 = new
     fuel({
