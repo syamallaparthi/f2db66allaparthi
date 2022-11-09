@@ -3,6 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fuel = require("./models/fuel");
+
+require('dotenv').config();
+const connectionString = process.env.MONGO_CON
+mongoose = require('mongoose');
+mongoose.connect(connectionString, { useNewUrlParser: true, useUnifiedTopology: true });
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -43,5 +49,45 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+async function recreateDB() {
+  // Delete everything 
+  await pastry.deleteMany();
+
+  let instance1 = new
+    fuel({
+      Category: "Petrol", 
+      Color: "Gold",
+      Quantity: 5
+    });
+    let instance2 = new
+    fuel({
+      Category: "Diesel", 
+      Color: "Light Green",
+      Quantity: 4
+    });
+    let instance3 = new
+    fuel({
+      Category: "Ethanol", 
+      Color: "clear colorless",
+      Quantity: 3
+    });
+
+  instance1.save(function (err, doc) {
+    if (err) return console.error(err);
+    console.log("First object saved")
+  });
+  instance2.save(function (err, doc) {
+    if (err) return console.error(err);
+    console.log("First object saved")
+  });
+  instance3.save(function (err, doc) {
+    if (err) return console.error(err);
+    console.log("First object saved")
+  });
+}
+
+let reseed = true;
+if (reseed) { recreateDB(); }
 
 module.exports = app;
