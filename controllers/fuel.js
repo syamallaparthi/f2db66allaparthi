@@ -28,8 +28,22 @@ exports.fuel_detail = function(req, res) {
 }; 
  
 // Handle Fuel create on POST. 
-exports.fuel_create_post = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Fuel create POST'); 
+exports.fuel_create_post = async function (req, res) {
+    console.log(req.body)
+    let document = new Fuel();
+
+    document.Category = req.body.Category;
+    document.Color = req.body.Color;
+    document.Quantity = req.body.Quantity;
+
+    try {
+        let result = await document.save();
+        res.send(result);
+    }
+    catch (err) {
+        res.status(500);
+        res.send(`{"error": ${err}}`);
+    }
 }; 
  
 // Handle Fuel delete form on DELETE. 
