@@ -23,8 +23,15 @@ exports.fuel_view_all_Page = async function(req, res) {
     }   
 };
 // for a specific Fuel. 
-exports.fuel_detail = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Fuel detail: ' + req.params.id); 
+exports.fuel_detail = async function(req, res) { 
+    console.log("detail"  + req.params.id) 
+    try { 
+        result = await Fuel.findById( req.params.id) 
+        res.send(result) 
+    } catch (error) { 
+        res.status(500) 
+        res.send(`{"error": document for id ${req.params.id} not found`); 
+    } 
 }; 
  
 // Handle Fuel create on POST. 
