@@ -29,5 +29,9 @@ router.get('/fuels', fuel_controller.fuel_list);
  
 /* GET detail fuel page */ 
 router.get('/detail', fuel_controller.fuel_view_one_Page); 
+
+/* GET create fuel page */ 
+router.get('/create', fuel_controller.fuel_create_Page); 
+ 
  
 module.exports = router;
