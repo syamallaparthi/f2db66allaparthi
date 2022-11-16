@@ -128,3 +128,15 @@ exports.fuel_update_Page =  async function(req, res) {
     } 
 }; 
  
+// Handle a delete one view with id from query 
+exports.fuel_delete_Page = async function(req, res) { 
+    console.log("Delete view for id "  + req.query.id) 
+    try{ 
+        result = await Fuel.findById(req.query.id) 
+        res.render('fueldelete', { title: 'Fuel Delete', toShow: result }); 
+    } 
+    catch(err){ 
+        res.status(500) 
+        res.send(`{'error': '${err}'}`); 
+    } 
+}; 

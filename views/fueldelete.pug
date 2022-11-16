@@ -1,0 +1,53 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  if (toShow == null) 
+    h2 No instance to delete 
+  else 
+    - let id = toShow._id 
+    - let Category = toShow.Category 
+    - let Color = toShow.Color 
+    - let Quantity = toShow.Quantity 
+    - let actionid = "/resource/fuels/" + id 
+    script let actionid = "#{actionid}" 
+    div 
+      div.row 
+        div(class='fuelAttr mr-3') Fuel ID is: 
+        div #{id} 
+      div.row 
+        div(class='fuelAttr mr-3') Fuel Category is: 
+        div #{Category} 
+      div.row 
+        div(class='fuelAttr mr-3') Fuel Color is: 
+        div #{Color} 
+      div.row 
+        div(class='fuelAttr mr-3') Fuel Quantity is: 
+        div #{Quantity} 
+ 
+    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
+ 
+  script. 
+    function cancel() { 
+      // Go back to the home page for the fuel collection 
+      window.location.href='/fuels' 
+    } 
+  script. 
+    function deleteOnid() { 
+      console.log("starting delete") 
+      // delete first 
+      fetch(actionid, { 
+        method: 'DELETE'       
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Delete succeded") 
+        window.location.href='/fuels' 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Delete failed " + error ) 
+      }); 
+    } 

@@ -35,4 +35,7 @@ router.get('/create', fuel_controller.fuel_create_Page);
  
 /* GET create update page */ 
 router.get('/update', fuel_controller.fuel_update_Page); 
+
+/* GET delete fuel page */ 
+router.get('/delete', fuel_controller.fuel_delete_Page); 
 module.exports = router;
