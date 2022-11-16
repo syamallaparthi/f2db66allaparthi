@@ -33,5 +33,6 @@ router.get('/detail', fuel_controller.fuel_view_one_Page);
 /* GET create fuel page */ 
 router.get('/create', fuel_controller.fuel_create_Page); 
  
- 
+/* GET create update page */ 
+router.get('/update', fuel_controller.fuel_update_Page); 
 module.exports = router;
