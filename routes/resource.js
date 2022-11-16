@@ -27,4 +27,7 @@ router.get('/fuels/:id', fuel_controller.fuel_detail);
 // GET request for list of all Fuel items. 
 router.get('/fuels', fuel_controller.fuel_list);  
  
+/* GET detail fuel page */ 
+router.get('/detail', fuel_controller.fuel_view_one_Page); 
+ 
 module.exports = router;

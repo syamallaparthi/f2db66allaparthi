@@ -1,0 +1,22 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  - let id = toShow._id 
+  - let Category = toShow.Category 
+  - let Color = toShow.Color 
+  - let Quantity = toShow.Quantity 
+  div 
+    div.row 
+      div(class='fuelAttr mr-3') Fuel ID is: 
+      div #{id} 
+    div.row 
+      div(class='fuelAttr mr-3') Fuel Category is: 
+      div #{Category} 
+    div.row 
+      div(class='fuelAttr mr-3') Fuel Color is: 
+      div #{Color} 
+    div.row 
+      div(class='fuelAttr mr-3') Fuel Quantity is: 
+      div #{Quantity} 
