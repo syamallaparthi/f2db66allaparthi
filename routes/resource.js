@@ -25,6 +25,6 @@ router.put('/fuels/:id', fuel_controller.fuel_update_put);
 router.get('/fuels/:id', fuel_controller.fuel_detail); 
  
 // GET request for list of all Fuel items. 
-router.get('/fuels', fuel_controller.fuel_list); 
+router.get('/fuels', fuel_controller.fuel_list);  
  
 module.exports = router;

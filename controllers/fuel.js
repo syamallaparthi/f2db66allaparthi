@@ -53,9 +53,17 @@ exports.fuel_create_post = async function (req, res) {
     }
 }; 
  
-// Handle Fuel delete form on DELETE. 
-exports.fuel_delete = function(req, res) { 
-    res.send('NOT IMPLEMENTED: Fuel delete DELETE ' + req.params.id); 
+// Handle Fuel delete on DELETE. 
+exports.fuel_delete = async function(req, res) { 
+    console.log("delete "  + req.params.id) 
+    try { 
+        result = await Fuel.findByIdAndDelete( req.params.id) 
+        console.log("Removed " + result) 
+        res.send(result) 
+    } catch (err) { 
+        res.status(500) 
+        res.send(`{"error": Error deleting ${err}}`); 
+    } 
 }; 
  
 // Handle Fuel update form on PUT. 
