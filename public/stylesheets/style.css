@@ -1,8 +1,16 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color:azure;
 }
 
+h1 {
+  font-family: 'Tangerine', serif;
+  font-size: 68px;
+  text-shadow: 4px 4px 4px #aaa;
+  text-align: center;
+  color: purple
+}
 a {
   color: #00B7FF;
 }
@@ -21,6 +29,6 @@ td {
 }
 
 .fuelAttr { 
-  background-color: aquamarine; 
   width: 120px; 
+  text-align: centre;
 } 
