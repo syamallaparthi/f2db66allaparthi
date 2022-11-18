@@ -4,11 +4,13 @@ block content
   h1= title
   - let fuels = results
   div(class = "container-fluid")
-   div(class = "row")
+   div(class = "row m-1")
     each item, index in fuels
-     div.col-sm-2(onclick=`buy(${index})`) Category: #{item["Category"]} <br> Color: #{item["Color"]} <br> Quantity: #{item["Quantity"]}
+     - let destination = `dispatch(\"/resource/update?id=${item._id}\")`
+     div(class="row-sm-2", class="m-1") Item #{item.Category}(#{item.Quantity}) is #{item.Color}
+     button.btn( class="btn-primary ml-1", onclick= destination) Update 
 
   script. 
-    function buy(index) {
-        alert("You purchased item " + index + ".")
+    function dispatch(path){ 
+    window.location.href=path 
     } 
