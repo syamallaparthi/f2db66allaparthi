@@ -38,4 +38,6 @@ router.get('/update', fuel_controller.fuel_update_Page);
 
 /* GET delete fuel page */ 
 router.get('/delete', fuel_controller.fuel_delete_Page); 
+
+
 module.exports = router;
