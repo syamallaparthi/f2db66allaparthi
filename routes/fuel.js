@@ -12,17 +12,17 @@ const secured = (req, res, next) => {
     res.redirect("/login"); 
   } 
 
-/* GET pastry */
+/* GET Fuel */
 router.get('/', fuel_controlers.fuel_view_all_Page );
 
-/* GET detail pastry page */
+/* GET detail Fuel page */
 router.get('/detail', fuel_controlers.fuel_view_one_Page);
-/* GET create pastry page */
+/* GET create Fuel page */
 router.get('/create', secured,  fuel_controlers.fuel_create_Page);
 
 /* GET create update page */ 
 router.get('/update', secured, fuel_controlers.fuel_update_Page);
-/* GET delete pastry page */
+/* GET delete Fuel page */
 router.get('/delete', secured, fuel_controlers.fuel_delete_Page);
 
 module.exports = router;
